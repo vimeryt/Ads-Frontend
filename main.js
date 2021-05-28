@@ -1,21 +1,61 @@
+let map = {
+    x: 0,
+    y: 0,
+    // width: window.innerWidth,
+    // height: window.innerHeight,
+    width: 720,
+    height: 560,
+    color: '#f5f5f5'
+}
+
 let cube = {
-    x: randomChoice([100,514]), // Случ. корды спавна
-    y: randomChoice([100,514]),
-    id: "cube",
+    x: 0,
+    y: 0,
+    id: 'cube',
     width: 56,
     height: 56,
     trn: .25,
     step: 56,
-    color: 'black'
+    color: 'black',
+    oldX: 0,
+    oldY: 0
 }
 
-let map = {
-    x: 100,
-    y: 100,
-    width: 470,
-    height: 470,
-    color: '#f5f5f5'
+let bots = [];
+
+let bot = {
+    x: 0,
+    y: 0,
+    id: 1,
+    width: 56,
+    height: 56,
+    trn: .25,
+    step: 56,
+    color: 'red'
 }
 
-renderMap(map); // Рендер карты
-renderCube(cube); // Рендер куба
+// bots.push(spawnCube(map, bot));
+
+let buffs = [];
+
+let buff = {
+    x: 0,
+    y: 0,
+    id: 1,
+    width: 56,
+    height: 56,
+    trn: .25,
+    step: 56,
+    color: 'yellow'
+}
+
+// buffs.push(spawnCube(map, buff));
+
+renderMap(map);
+renderCube(spawnCube(map, cube));
+// renderBots(bots);
+// renderBuffs(buffs);
+
+let score = 0;
+
+let tike = setInterval(timeTike, 3000);
